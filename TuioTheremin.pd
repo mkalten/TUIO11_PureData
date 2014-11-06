@@ -1,0 +1,41 @@
+#N canvas 220 175 631 463 10;
+#X obj 78 53 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 21 13 TuioClient;
+#X obj 21 87 route addObject removeObject updateObject;
+#X text 127 46 see the help patch for the TuioClient for more info
+;
+#X text 204 150 x-axis;
+#X obj 182 127 unpack \$1 \$2 \$3 \$4 \$5;
+#X obj 242 174 * 440;
+#X obj 384 338 dac~;
+#X msg 21 126 \; pd dsp 1;
+#X msg 101 126 \; pd dsp 0;
+#X text 40 163 ON;
+#X text 121 163 OFF;
+#X obj 242 207 + 440;
+#X obj 396 316 *~ 0.5;
+#X obj 277 245 osc~ 660;
+#X obj 393 227 osc~ 100;
+#X obj 354 282 +~;
+#X obj 393 187 * 100;
+#X text 280 152 y-axis;
+#X text 353 154 angle;
+#X text 126 13 simple example patch mapping the coordinates of a single
+object to x=frequency and y=amplitude of a simple oscillator;
+#X connect 1 0 2 0;
+#X connect 1 1 0 0;
+#X connect 2 0 8 0;
+#X connect 2 1 9 0;
+#X connect 2 2 5 0;
+#X connect 5 2 6 0;
+#X connect 5 3 13 1;
+#X connect 5 4 17 0;
+#X connect 6 0 12 0;
+#X connect 12 0 14 0;
+#X connect 13 0 7 0;
+#X connect 13 0 7 1;
+#X connect 14 0 16 0;
+#X connect 15 0 16 1;
+#X connect 16 0 13 0;
+#X connect 17 0 15 0;

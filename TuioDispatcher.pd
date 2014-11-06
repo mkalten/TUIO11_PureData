@@ -1,0 +1,56 @@
+#N canvas 79 59 836 489 24;
+#X floatatom 65 253 5 0 0 0 - - -;
+#N canvas 95 22 1043 696 tuioDispatcher 1;
+#X obj 189 67 bng 15 250 50 0 empty empty empty 0 -6 0 8 -262144 -1
+-1;
+#X obj 45 41 TuioClient;
+#X obj 259 315 route addObject removeObject updateObject;
+#X msg 259 353 \; \$2-tuioObjectAlive 1;
+#X msg 259 415 \; \$2-tuioObjectAlive 0;
+#X msg 585 353 \; \$2-tuioObjectUpdate \$3 \$4 \$5;
+#X msg 257 162 \; \$2-tuioCursorAlive 1;
+#X msg 260 224 \; \$2-tuioCursorAlive 0;
+#X msg 584 162 \; \$2-tuioCursorUpdate \$3 \$4;
+#X obj 258 122 route addCursor removeCursor updateCursor;
+#X obj 260 512 route addBlob removeBlob updateBlob;
+#X msg 260 550 \; \$2-tuioBlobAlive 1;
+#X msg 260 612 \; \$2-tuioBlobAlive 0;
+#X msg 586 550 \; \$2-tuioBlobUpdate \$3 \$4 \$5 \$6 \$7 \$8;
+#X connect 1 0 2 0;
+#X connect 1 0 9 0;
+#X connect 1 0 10 0;
+#X connect 1 1 0 0;
+#X connect 2 0 3 0;
+#X connect 2 1 4 0;
+#X connect 2 2 5 0;
+#X connect 9 0 6 0;
+#X connect 9 1 7 0;
+#X connect 9 2 8 0;
+#X connect 10 0 11 0;
+#X connect 10 1 12 0;
+#X connect 10 2 13 0;
+#X restore 65 92 pd tuioDispatcher;
+#X obj 65 217 r 0-tuioObjectAlive;
+#X obj 62 363 r 0-tuioObjectUpdate;
+#X floatatom 313 253 5 0 0 0 - - -;
+#X obj 313 217 r 0-tuioCursorAlive;
+#X obj 62 399 print tuioObject-0;
+#X text 65 34 Dispatching TUIO messages to different objects \, cursors
+or blobs which are identified by their ID.;
+#X text 63 155 The x-tuioAlive message indicates if the indicated objects
+cursors or blobs are on the table. Here we listen to ID 0;
+#X floatatom 561 253 5 0 0 0 - - -;
+#X obj 561 217 r 0-tuioBlobAlive;
+#X obj 324 362 r 0-tuioCursorUpdate;
+#X obj 324 399 print tuioCursor-0;
+#X obj 584 361 r 0-tuioBlobUpdate;
+#X obj 584 398 print tuioBlob-0;
+#X text 58 298 The x-tuioUpdate message gives the position of the indicated
+object \, cursor or blob;
+#X text 96 320;
+#X connect 2 0 0 0;
+#X connect 3 0 6 0;
+#X connect 5 0 4 0;
+#X connect 10 0 9 0;
+#X connect 11 0 12 0;
+#X connect 13 0 14 0;

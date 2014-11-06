@@ -1,0 +1,47 @@
+NAME=TuioClient
+CSYM=TuioClient
+
+current: pd_nt
+
+# ----------------------- NT -----------------------
+
+pd_nt: $(NAME).dll
+
+.SUFFIXES: .dll
+
+PDNTCFLAGS = /W0 /DNT /DPD /nologo /D "WIN32" /D "NDEBUG" /D "LIB_EXPORT" /EHsc
+
+NTOBJECTS = TuioWrapper.obj TuioPureData.obj ./TUIO/TuioClient.obj ./TUIO/TuioDispatcher.obj ./TUIO/OscReceiver.obj ./TUIO/UdpReceiver.obj \
+	./TUIO/TuioTime.obj ./TUIO/TuioPoint.obj ./TUIO/TuioContainer.obj ./TUIO/TuioCursor.obj ./TUIO/TuioObject.obj ./TUIO/TuioBlob.obj \
+        ./oscpack/osc/OscTypes.obj ./oscpack/osc/OscReceivedElements.obj ./oscpack/osc/OscPrintReceivedElements.obj \
+        ./oscpack/ip/win32/NetworkingUtils.obj ./oscpack/ip/win32/UdpSocket.obj
+
+FINALOBJECTS = TuioClient.obj TuioWrapper.obj TuioPureData.obj TuioDispatcher.obj OscReceiver.obj UdpReceiver.obj \
+	TuioTime.obj TuioPoint.obj TuioContainer.obj TuioCursor.obj TuioObject.obj TuioBlob.obj \
+        OscTypes.obj OscReceivedElements.obj OscPrintReceivedElements.obj \
+        NetworkingUtils.obj UdpSocket.obj
+
+VC="C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC"
+VCLIB="C:\Program Files (x86)\Microsoft SDKs\Windows\v7.1A\Lib"
+
+PDNTINCLUDE = /I./TUIO /I./oscpack /I. /I..\..\src /I$(VC)\include
+
+PDNTLDIR = $(VC)\lib
+PDNTLIB = $(PDNTLDIR)\libcmt.lib \
+        $(PDNTLDIR)\oldnames.lib \
+        $(VCLIB)\kernel32.lib \
+        $(VCLIB)\ws2_32.lib \
+         $(VCLIB)\winmm.lib \
+        C:\pd\bin\pd.lib
+
+.cpp.obj:
+        cl $(PDNTCFLAGS) $(PDNTINCLUDE) /c $*.cpp
+
+$(NAME).dll: $(NTOBJECTS)
+	link /dll /export:$(CSYM)_setup $(FINALOBJECTS) $(PDNTLIB)
+
+
+# ----------------------------------------------------------
+
+clean:
+	del $(FINALOBJECTS) *.exp *.lib
