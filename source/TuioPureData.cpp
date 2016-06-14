@@ -1,6 +1,6 @@
 /*
  TUIO PureData External
- Copyright (c) 2005-2014 Martin Kaltenbrunner <martin@tuio.org>
+ Copyright (c) 2005-2016 Martin Kaltenbrunner <martin@tuio.org>
  
  This library is free software; you can redistribute it and/or
  modify it under the terms of the GNU Lesser General Public
@@ -62,10 +62,10 @@ extern "C"{
 			wrapper->start();
 			if (wrapper->isRunning()) {
 				TuioClientList.push_back(wrapper);
-				post("TuioClient: started listening to UDP port %d",x->port);
+				post("TuioClient: started listening to TUIO/UDP port %d",x->port);
 			} else {
 				delete wrapper;
-				post("TuioClient: could not bind to UDP port %d",x->port);
+				post("TuioClient: could not bind to TUIO/UDP port %d",x->port);
 			}			
 
 		}
@@ -87,7 +87,7 @@ extern "C"{
 					TuioClientList.erase(iter);
 					delete wrapper;
 					wrapper = NULL;
-					post("TuioClient: stopped listening to UDP port %d",x->port);
+					post("TuioClient: stopped listening to TUIO/UDP port %d",x->port);
 				}
 				break;
 			}

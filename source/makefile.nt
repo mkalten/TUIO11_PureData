@@ -12,12 +12,12 @@ pd_nt: $(NAME).dll
 PDNTCFLAGS = /W0 /DNT /DPD /nologo /D "WIN32" /D "NDEBUG" /D "LIB_EXPORT" /EHsc
 
 NTOBJECTS = TuioWrapper.obj TuioPureData.obj ./TUIO/TuioClient.obj ./TUIO/TuioDispatcher.obj ./TUIO/OscReceiver.obj ./TUIO/UdpReceiver.obj \
-	./TUIO/TuioTime.obj ./TUIO/TuioPoint.obj ./TUIO/TuioContainer.obj ./TUIO/TuioCursor.obj ./TUIO/TuioObject.obj ./TUIO/TuioBlob.obj \
+	./TUIO/TuioTime.obj ./TUIO/TuioPoint.obj ./TUIO/TuioContainer.obj ./TUIO/TuioCursor.obj ./TUIO/TuioObject.obj ./TUIO/TuioBlob.obj ./TUIO/OneEuroFilter.obj \
         ./oscpack/osc/OscTypes.obj ./oscpack/osc/OscReceivedElements.obj ./oscpack/osc/OscPrintReceivedElements.obj \
         ./oscpack/ip/win32/NetworkingUtils.obj ./oscpack/ip/win32/UdpSocket.obj
 
 FINALOBJECTS = TuioClient.obj TuioWrapper.obj TuioPureData.obj TuioDispatcher.obj OscReceiver.obj UdpReceiver.obj \
-	TuioTime.obj TuioPoint.obj TuioContainer.obj TuioCursor.obj TuioObject.obj TuioBlob.obj \
+	TuioTime.obj TuioPoint.obj TuioContainer.obj TuioCursor.obj TuioObject.obj TuioBlob.obj ./TUIO/OneEuroFilter.obj \
         OscTypes.obj OscReceivedElements.obj OscPrintReceivedElements.obj \
         NetworkingUtils.obj UdpSocket.obj
 
