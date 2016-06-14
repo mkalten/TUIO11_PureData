@@ -41,14 +41,14 @@ a number in the range of all currently detected cursor blobs.
 Binaries:
 ---------
 This package includes binaries for Windows NT or later.
-and Mac OS X 10.5 or later as Universal binary.
+and Mac OS X 10.6 or later as Universal binary.
 
 Source Code:
 ------------
 The TuioClient external comes with its full source code which can be
 built under Windows, Mac OS X as well as all Linux or Unix flavors.
 In order to compile the external for your platform, type "make"
-folloed by "pd_linux", "pd_darwin" or "pd_nt" depending on your platform.
+followed by "pd_linux", "pd_darwin" or "pd_nt" depending on your platform.
 For convenience the Windows and Mac OS X binaries are included.
 
 License:
