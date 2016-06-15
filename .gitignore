@@ -1,6 +1,8 @@
 
 TuioClient.pd_darwin
 
+TuioClient.pd_linux
+
 TuioClient.dll
 
 *.o
