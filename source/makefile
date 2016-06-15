@@ -15,10 +15,10 @@ OBJECTS = TuioWrapper.o TuioPureData.o ./TUIO/TuioClient.o ./TUIO/TuioDispatcher
 	./oscpack/ip/posix/NetworkingUtils.o ./oscpack/ip/posix/UdpSocket.o
 
 CXXFLAGS = -DOSC_HOST_LITTLE_ENDIAN -DPD -O2 -funroll-loops -fomit-frame-pointer -fPIC \
-    $(CFLAGS) -I. -I./TUIO
+    $(CFLAGS) -I. -I./oscpack -I./TUIO
 
 $(NAME).pd_linux: $(OBJECTS)
-	$(CXX) -shared -o ../$(NAME).pd_linux $(OBJECTS)  -lc  -lm
+	$(CXX) -shared -o ../$(NAME).pd_linux $(OBJECTS) -lc -lm
 
 # ----------------------- Mac OSX -----------------------
 
