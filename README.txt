@@ -40,8 +40,8 @@ a number in the range of all currently detected cursor blobs.
 
 Binaries:
 ---------
-This package includes binaries for Windows NT or later.
-and Mac OS X 10.6 or later as Universal binary.
+This package includes 32bit and 64bit binaries for Windows NT or later,
+as well as a Universal binary external for Mac OS X 10.6 or later.
 
 Source Code:
 ------------

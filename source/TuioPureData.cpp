@@ -62,10 +62,10 @@ extern "C"{
 			wrapper->start();
 			if (wrapper->isRunning()) {
 				TuioClientList.push_back(wrapper);
-				post("TuioClient: started listening to TUIO/UDP port %d",x->port);
+				post("TuioClient: started listening to TUIO/UDP messages on port %d",x->port);
 			} else {
 				delete wrapper;
-				post("TuioClient: could not bind to TUIO/UDP port %d",x->port);
+				post("TuioClient: could not bind to UDP port %d",x->port);
 			}			
 
 		}
@@ -87,7 +87,7 @@ extern "C"{
 					TuioClientList.erase(iter);
 					delete wrapper;
 					wrapper = NULL;
-					post("TuioClient: stopped listening to TUIO/UDP port %d",x->port);
+					post("TuioClient: stopped listening to TUIO/UDP messages on port %d",x->port);
 				}
 				break;
 			}
