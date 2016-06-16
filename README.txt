@@ -29,14 +29,14 @@ addCursor session_id cursor_id xpos ypos
 updateCursor session_id cursor_id xpos ypos xspeed yspeed maccel
 removeCursor session_id cursor_id
 
-addBlob session_id symbol_id xpos ypos angle
-updateBlob session_id symbol_id xpos ypos angle width height area xspeed yspeed rspeed maccel raccel
-removeBlob session_id symbol_id
+addBlob session_id blob_id xpos ypos angle
+updateBlob session_id blob_id xpos ypos angle width height area xspeed yspeed rspeed maccel raccel
+removeBlob session_id blob_id
 
 Each object, cursor or blob is identified with a unique session ID, that is only maintained
 over its lifetime. Additionally each object carries a symbol ID that corresponds
-to its attached fiducial marker number. The cursor ID of the cursor object is always
-a number in the range of all currently detected cursor blobs.
+to its attached fiducial marker number. The cursor and blob IDs are always
+a number in the range of all currently detected cursors or blobs.
 
 Binaries:
 ---------
@@ -49,7 +49,6 @@ The TuioClient external comes with its full source code which can be
 built under Windows, Mac OS X as well as all Linux or Unix flavors.
 In order to compile the external for your platform, type "make"
 followed by "pd_linux", "pd_darwin" or "pd_nt" depending on your platform.
-For convenience the Windows and Mac OS X binaries are included.
 
 License:
 --------
