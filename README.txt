@@ -6,8 +6,8 @@ Demo Patch:
 This package contains a simple patch that receives and decodes
 TUIO messages reveived from any TUIO enabled tracker or a TUIO simulator.
 
-The TuioClient object takes an alternative port number as 
-an optional argument. The default TUIO port is 3333.
+The TuioClient object takes an alternative UDP port number 
+as an optional argument. The default TUIO/UDP port is 3333.
 
 There are two outputs, the first one is sending all relevant
 TUIO events such as addObject, updateObject and removeObject
